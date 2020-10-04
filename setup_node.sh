@@ -11,7 +11,7 @@ sudo rm -r ~/qoober-node  2>/dev/null
 sudo rm -r ~/qoober-node-compiled  2>/dev/null
 
 # Клонируем репозиторий QOOBER
-git clone https://github.com/Qoober/qoober-node-compiled
+git clone https://github.com/Qoober/qoober-node-compiled 2>/dev/null
 # Переименовываем папки
 mv qoober-node-compiled qoober-node
 # Создаем папку logs
