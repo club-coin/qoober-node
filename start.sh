@@ -5,7 +5,7 @@ daemon=0
     
     
     
-status_node=$(ps -a | grep "java -jar qoober.jar" | grep -v grep | wc -l)
+status_node=$(ps -au | grep "java -jar qoober.jar" | grep -v grep | wc -l)
 if [ $status_node -ge 1 ]
     then {
         echo 
@@ -22,12 +22,14 @@ if [ $status_node -ge 1 ]
         help()
             {
             echo "Parameters:"
-            echo "Параметры запуска :"
+            echo "Для запуска :"
             echo
+            echo "  Вариант 1"
             echo "  --desktop : Force desktop mode in the current directory."
             echo "              Для запуска в консоли запустите ./start.sh --desktop"
             echo "              Для остановки и выхода нажмите Ctrl+C"
             echo
+            echo "  Вариант 2"
             echo "  --daemon  : Start in daemon mode (background). Use ./stop.sh to stop the node."
             echo "              Для запуска в бэкграунде запустите ./start.sh --daemon"
             echo "              Для остановки ноды запустите ./stop.sh"
