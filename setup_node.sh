@@ -1,17 +1,19 @@
 #!/bin/bash
-
+rm -r ./setup_node.sh  &>/dev/null
+echo
 echo "Устанавливаем mc, htop, git и java"
-sudo apt-get update 2>&1 >/dev/null
-sudo apt-get install -y mc htop git default-jdk 2>&1 >/dev/null
+sudo apt-get update &>/dev/null
+echo "ожидаем минутку"
+sudo apt-get install -y mc htop git default-jdk &>/dev/null
 echo ""
 # Переходим в домашний коталог
 cd ~/
 # Удаляем старые папки ноды
-sudo rm -r ~/qoober-node  2>/dev/null
-sudo rm -r ~/qoober-node-compiled  2>/dev/null
+sudo rm -r ~/qoober-node  &>/dev/null
+sudo rm -r ~/qoober-node-compiled  &>/dev/null
 
 # Клонируем репозиторий QOOBER
-git clone https://github.com/Qoober/qoober-node-compiled
+git clone https://github.com/Qoober/qoober-node-compiled &>/dev/null
 # Переименовываем папки
 mv qoober-node-compiled qoober-node
 # Создаем папку logs
@@ -28,10 +30,10 @@ echo "Задайте пароль для ноды:"
 read nodapass
 
 # Узнаем внешний ип адрес
-my_ip=$(curl smart-ip.net/myip)
+my_ip=$(curl smart-ip.net/myip) &>/dev/null
 
 # Вписываем ип адрес название ноды и пароль в файл настроек
-# echo "qoober.myAddress=" >> ~/qoober-node/conf/qoober.properties
+echo "qoober.myAddress=" >> ~/qoober-node/conf/qoober.properties
 echo "qoober.myPlatform=" >> ~/qoober-node/conf/qoober.properties
 echo "qoober.adminPassword=" >> ~/qoober-node/conf/qoober.properties
 
@@ -42,8 +44,8 @@ perl -i -pe "s!qoober.adminPassword=!qoober.adminPassword=$nodapass!g" ~/qoober-
 
 # Скачиваем файлы для запуска/остановки ноды
 cd ~/qoober-node/
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh 2>&1 >/dev/null
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh 2>&1 >/dev/null
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh &>/dev/null
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh &>/dev/null
 echo ""
 echo "Устанавливаем права на запуск файла "
 sleep 2
@@ -59,20 +61,20 @@ case "$item" in
     y|Y) echo "Ввели «y», запуксаем в консоли..."
         sleep 2
         cd ~/qoober-node/
-        java -jar qoober.jar
+        ./start.sh --desktop
         ;;
     n|N) echo "Ввели «n», запускаем в бэкграунд..."
         sleep 2
         cd ~/qoober-node/
-        java  -jar qoober.jar > /dev/null 2>&1
+        ./start.sh --daemon &>/dev/null
         ;;
     *) echo "Ничего не ввели. Выполняем действие по умолчанию..."
         sleep 2
         cd ~/qoober-node/
-        java  -jar qoober.jar > /dev/null 2>&1
+        ./start.sh --desktop &>/dev/null
         ;;
 esac
 
-
+rm -r ./setup_node.sh  &>/dev/null
 echo -n "Установка ноды завершена"
 exit 0

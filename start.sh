@@ -45,7 +45,9 @@ if [ $status_node -ge 1 ]
         done
         if [ $desktop -eq 1 ] && [ $daemon -eq 1 ]; 
             then {
+            echo
             echo "Вы не можете запустить в desktop и daemon mode одновременно. Выбирите только один вариант."
+            echo
             exit 1
             }
         fi;
