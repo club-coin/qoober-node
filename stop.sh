@@ -1,9 +1,10 @@
 #!/bin/sh
 # проеряем запущена ли нода
-status_node=$(ps -au | grep "java -jar qoober.jar" | grep -v grep | wc -l)
+status_node=$(ps -a | grep "java -jar qoober.jar" | grep -v grep | wc -l)
     if [ $status_node -eq 0 ]
     then {
         echo
+        echo "QOOBER server is not runing"
         echo "QOOBER сервер НЕ запущен"
         echo
 # И выходим        
@@ -17,7 +18,7 @@ status_node=$(ps -au | grep "java -jar qoober.jar" | grep -v grep | wc -l)
         echo "останавливаем"
         echo
 # Убиваем процес ноды
-        kill `ps -au | grep "java -jar qoober.jar" | grep -v grep | awk '{print $2}'` > /dev/null
+        kill `ps -a | grep "java -jar qoober.jar" | grep -v grep | awk '{print $2}'` > /dev/null
 # Ожидаем 5 секунд
         sleep 5
 # И снова проверяем процесс ноды
