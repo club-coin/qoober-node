@@ -39,10 +39,16 @@ echo "qoober.adminPassword=" >> ~/qoober-node/conf/qoober.properties
 perl -i -pe "s!qoober.myAddress=!qoober.myAddress=$my_ip!g" ~/qoober-node/conf/qoober.properties
 perl -i -pe "s!qoober.myPlatform=!qoober.myPlatform=$nodaname!g" ~/qoober-node/conf/qoober.properties
 perl -i -pe "s!qoober.adminPassword=!qoober.adminPassword=$nodapass!g" ~/qoober-node/conf/qoober.properties
+
+# Скачиваем файлы для запуска/остановки ноды
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh
 echo ""
 echo "Устанавливаем права на запуск файла "
 sleep 2
 chmod 755 ~/qoober-node/run.sh
+chmod 755 ~/qoober-node/start.sh
+chmod 755 ~/qoober-node/stop.sh
 echo ""
 
 echo "Вы хотите видеть загрузку ноды? (y/n)"
