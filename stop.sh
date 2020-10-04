@@ -15,7 +15,7 @@ status_node=$(ps -au | grep "java -jar qoober.jar" | grep -v grep | wc -l)
 # Иначе пишем в консоли
         echo
         echo "stopping"
-        echo "останавливаем"
+        echo "...ждите, останавливаем..."
         echo
 # Убиваем процес ноды
         kill `ps -au | grep "java -jar qoober.jar" | grep -v grep | awk '{print $2}'` > /dev/null
