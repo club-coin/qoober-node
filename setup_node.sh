@@ -42,8 +42,8 @@ perl -i -pe "s!qoober.adminPassword=!qoober.adminPassword=$nodapass!g" ~/qoober-
 
 # Скачиваем файлы для запуска/остановки ноды
 cd ~/qoober-node/
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh 2>&1 >/dev/null
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh 2>&1 >/dev/null
 echo ""
 echo "Устанавливаем права на запуск файла "
 sleep 2
