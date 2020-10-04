@@ -41,6 +41,7 @@ perl -i -pe "s!qoober.myPlatform=!qoober.myPlatform=$nodaname!g" ~/qoober-node/c
 perl -i -pe "s!qoober.adminPassword=!qoober.adminPassword=$nodapass!g" ~/qoober-node/conf/qoober.properties
 
 # Скачиваем файлы для запуска/остановки ноды
+cd ~/qoober-node/
 wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh
 wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh
 echo ""
