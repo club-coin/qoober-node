@@ -5,7 +5,7 @@
 Для автоматической установки введите следующие 3 команды в консоли сервера
 
 ```shell
-wget https://raw.githubusercontent.com/club-coin/qoober-node/master/setup_node.sh
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/setup_node.sh
 ```
 ```shell
 chmod 775 ./setup_node.sh
