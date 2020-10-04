@@ -74,7 +74,8 @@ case "$item" in
         ;;
 esac
 
-
+echo
 echo -n "Установка ноды завершена"
+echo
 echo
 exit 0
