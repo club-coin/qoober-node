@@ -5,7 +5,9 @@
 Для автоматической установки введите следующую команду в консоли сервера
 
 ```shell
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/setup_node.sh && chmod 775 ./setup_node.sh && ./setup_node.sh
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/setup_node.sh && 
+chmod 775 ./setup_node.sh &&
+./setup_node.sh
 ```
 При установки, вам нужно будет вписать Название ноды на английском языки, а так же придумать пароль для доступа к ноде и вписать его
 

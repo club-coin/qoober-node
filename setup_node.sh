@@ -1,5 +1,8 @@
 #!/bin/bash
+<<<<<<< HEAD
 rm -r ./setup_node.sh  &>/dev/null
+=======
+>>>>>>> 4e5eaceb60e0221a243e850efd65d9b109c795ba
 echo
 echo "Устанавливаем mc, htop, git и java"
 sudo apt-get update &>/dev/null
