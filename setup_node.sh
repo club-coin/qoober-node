@@ -1,17 +1,17 @@
 #!/bin/bash
 
 echo "Устанавливаем mc, htop, git и java"
-sudo apt-get update 2>&1 >/dev/null
-sudo apt-get install -y mc htop git default-jdk 2>&1 >/dev/null
+sudo apt-get update >/dev/null
+sudo apt-get install -y mc htop git default-jdk >/dev/null
 echo ""
 # Переходим в домашний коталог
 cd ~/
 # Удаляем старые папки ноды
-sudo rm -r ~/qoober-node  2>/dev/null
-sudo rm -r ~/qoober-node-compiled  2>/dev/null
+sudo rm -r ~/qoober-node  >/dev/null
+sudo rm -r ~/qoober-node-compiled  >/dev/null
 
 # Клонируем репозиторий QOOBER
-git clone https://github.com/Qoober/qoober-node-compiled > /dev/null 2>&1
+git clone https://github.com/Qoober/qoober-node-compiled >/dev/null
 # Переименовываем папки
 mv qoober-node-compiled qoober-node
 # Создаем папку logs
@@ -42,8 +42,8 @@ perl -i -pe "s!qoober.adminPassword=!qoober.adminPassword=$nodapass!g" ~/qoober-
 
 # Скачиваем файлы для запуска/остановки ноды
 cd ~/qoober-node/
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh > /dev/null 2>&1ll
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh >/dev/null
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh >/dev/null
 echo ""
 echo "Устанавливаем права на запуск файла "
 sleep 2
@@ -64,15 +64,15 @@ case "$item" in
     n|N) echo "Ввели «n», запускаем в бэкграунд..."
         sleep 2
         cd ~/qoober-node/
-        java  -jar qoober.jar > /dev/null 2>&1
+        java  -jar qoober.jar >/dev/null
         ;;
     *) echo "Ничего не ввели. Выполняем действие по умолчанию..."
         sleep 2
         cd ~/qoober-node/
-        java  -jar qoober.jar > /dev/null 2>&1
+        java  -jar qoober.jar >/dev/null
         ;;
 esac
 
-
+sudo rm -r ./setup_node.sh  >/dev/null
 echo -n "Установка ноды завершена"
 exit 0
