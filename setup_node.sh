@@ -29,7 +29,7 @@ echo "Задайте пароль для ноды:"
 read nodapass
 
 # Узнаем внешний ип адрес
-my_ip=$(curl smart-ip.net/myip) &>/dev/null
+my_ip=$(curl smart-ip.net/myip)
 
 # Вписываем ип адрес название ноды и пароль в файл настроек
 echo "qoober.myAddress=" >> ~/qoober-node/conf/qoober.properties
@@ -76,4 +76,5 @@ esac
 
 
 echo -n "Установка ноды завершена"
+echo
 exit 0
