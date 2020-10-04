@@ -11,7 +11,7 @@ sudo rm -r ~/qoober-node  2>/dev/null
 sudo rm -r ~/qoober-node-compiled  2>/dev/null
 
 # Клонируем репозиторий QOOBER
-git clone https://github.com/Qoober/qoober-node-compiled 2>/dev/null
+git clone https://github.com/Qoober/qoober-node-compiled > /dev/null 2>&1
 # Переименовываем папки
 mv qoober-node-compiled qoober-node
 # Создаем папку logs
@@ -42,8 +42,8 @@ perl -i -pe "s!qoober.adminPassword=!qoober.adminPassword=$nodapass!g" ~/qoober-
 
 # Скачиваем файлы для запуска/остановки ноды
 cd ~/qoober-node/
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh 2>&1 >/dev/null
-wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh 2>&1 >/dev/null
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/start.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/club-coin/qoober-node/main/stop.sh > /dev/null 2>&1ll
 echo ""
 echo "Устанавливаем права на запуск файла "
 sleep 2
